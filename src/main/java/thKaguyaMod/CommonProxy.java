@@ -3,9 +3,15 @@ package thKaguyaMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.BlockDispenser;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.dispenser.IBehaviorDispenseItem;
 import net.minecraft.dispenser.IPosition;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
@@ -146,51 +152,51 @@ public class CommonProxy
          */
         int entityId = 0;
 
-        EntityRegistry.registerModEntity( EntityShotMaterial.class                ,stringHumpToUnderline("ShotMaterial")              ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
-        EntityRegistry.registerModEntity( EntityDragonNeckJewel.class             ,stringHumpToUnderline("BrilliantDragonBullet")     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityTHItem.class                      ,stringHumpToUnderline("THItem")                    ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntityKinkakuzi.class                   ,stringHumpToUnderline("Kinkakuzi")                 ,entityId++           , THKaguyaCore.instance,250, 1, true    );
-        EntityRegistry.registerModEntity( EntitySilverKnife.class                 ,stringHumpToUnderline("SilverKnife")               ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntitySakuyaWatch.class                 ,stringHumpToUnderline("PrivateSquare")             ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntitySukima.class                      ,stringHumpToUnderline("Sukima")                    ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
-        EntityRegistry.registerModEntity( EntityMazinkyoukan.class                ,stringHumpToUnderline("Mazinkyoukan")              ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntityHisou.class                       ,stringHumpToUnderline("Hisou")                     ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntityPendulum.class                    ,stringHumpToUnderline("NazrinPendulum")            ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntityMiracleCircle.class               ,stringHumpToUnderline("MiracleCircle")             ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
-        EntityRegistry.registerModEntity( EntitySanaeWind.class                   ,stringHumpToUnderline("SanaeWind")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityCirnoIceBox.class                 ,stringHumpToUnderline("CirnoIceBox")               ,entityId++           , THKaguyaCore.instance, 80,10, false   );
-        EntityRegistry.registerModEntity( EntitySpiritualStrikeTalisman.class     ,stringHumpToUnderline("SpiritualStrikeTalisman")   ,entityId++           , THKaguyaCore.instance, 80,10, false   );
-        EntityRegistry.registerModEntity( EntityMiniHakkero.class                 ,stringHumpToUnderline("MiniHakkero")               ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
-        EntityRegistry.registerModEntity( EntityHomingAmulet.class                ,stringHumpToUnderline("HomingAmulet")              ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityTHSetLaser.class                  ,stringHumpToUnderline("THSetLaser")                ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntityYuukaParasol.class                ,stringHumpToUnderline("YuukaParasol")              ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntityAjaRedStoneEffect.class           ,stringHumpToUnderline("AjaRedStoneEffect")         ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntityMarisaBroom.class                 ,stringHumpToUnderline("MarisaBroom")               ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityTHShot.class                      ,stringHumpToUnderline("NormalShot")                ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
-        EntityRegistry.registerModEntity( EntityTHLaser.class                     ,stringHumpToUnderline("NormalLaser")               ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
-        EntityRegistry.registerModEntity( EntitySpellCard.class                   ,stringHumpToUnderline("SpellCard")                 ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
-        EntityRegistry.registerModEntity( EntityMusouFuuin.class                  ,stringHumpToUnderline("MusouFuuin")                ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntitySakuyaStopWatch.class             ,stringHumpToUnderline("SakuyaStopWatch")           ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntityNuclearShot.class                 ,stringHumpToUnderline("NuclearShot")               ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityHakurouReflecter.class            ,stringHumpToUnderline("HakurouReflecter")          ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        EntityRegistry.registerModEntity( EntityOnmyoudama.class                  ,stringHumpToUnderline("Onmyoudama")                ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityDivineSpirit.class                ,stringHumpToUnderline("DivineSpirit")              ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntitySpellCardCircle.class             ,stringHumpToUnderline("SpellCardCircle")           ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityCursedDecoyDoll.class             ,stringHumpToUnderline("CursedDecoyDoll")           ,entityId++           , THKaguyaCore.instance, 60, 5, false   );
-        EntityRegistry.registerModEntity( EntityTHFairy.class                     ,stringHumpToUnderline("THFairy")                   ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityCirno.class                       ,stringHumpToUnderline("Cirno")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityRumia.class                       ,stringHumpToUnderline("Rumia")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityToziko.class                      ,stringHumpToUnderline("Toziko")                    ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityTHPhantom.class                   ,stringHumpToUnderline("THPhantom")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntitySanae.class                       ,stringHumpToUnderline("Sanae")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityReimu.class                       ,stringHumpToUnderline("Reimu")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityMiko.class                        ,stringHumpToUnderline("Miko")                      ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityWriggle.class                     ,stringHumpToUnderline("Wriggle")                   ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntitySakuya.class                      ,stringHumpToUnderline("Sakuya")                    ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityRinnosuke.class                   ,stringHumpToUnderline("Rinnosuke")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntitySunFlowerFairy.class              ,stringHumpToUnderline("SunFlowerFairy")            ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityFamiliar.class                    ,stringHumpToUnderline("Familiar")                  ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        EntityRegistry.registerModEntity( EntityDanmakuCreeper.class              ,stringHumpToUnderline("Hanabeeper")                ,entityId             , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityShotMaterial(null)                ,stringHumpToUnderline("ShotMaterial")              ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
+        initEntity(new EntityDragonNeckJewel(null)             ,stringHumpToUnderline("BrilliantDragonBullet")     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityTHItem(null)                      ,stringHumpToUnderline("THItem")                    ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntityKinkakuzi(null)                   ,stringHumpToUnderline("Kinkakuzi")                 ,entityId++           , THKaguyaCore.instance,250, 1, true    );
+        initEntity(new EntitySilverKnife(null)                 ,stringHumpToUnderline("SilverKnife")               ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntitySakuyaWatch(null)                 ,stringHumpToUnderline("PrivateSquare")             ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntitySukima(null)                      ,stringHumpToUnderline("Sukima")                    ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
+        initEntity(new EntityMazinkyoukan(null)                ,stringHumpToUnderline("Mazinkyoukan")              ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntityHisou(null)                       ,stringHumpToUnderline("Hisou")                     ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntityPendulum(null)                    ,stringHumpToUnderline("NazrinPendulum")            ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntityMiracleCircle(null)               ,stringHumpToUnderline("MiracleCircle")             ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
+        initEntity(new EntitySanaeWind(null)                   ,stringHumpToUnderline("SanaeWind")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityCirnoIceBox(null)                 ,stringHumpToUnderline("CirnoIceBox")               ,entityId++           , THKaguyaCore.instance, 80,10, false   );
+        initEntity(new EntitySpiritualStrikeTalisman(null)     ,stringHumpToUnderline("SpiritualStrikeTalisman")   ,entityId++           , THKaguyaCore.instance, 80,10, false   );
+        initEntity(new EntityMiniHakkero(null)                 ,stringHumpToUnderline("MiniHakkero")               ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
+        initEntity(new EntityHomingAmulet(null)                ,stringHumpToUnderline("HomingAmulet")              ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityTHSetLaser(null)                  ,stringHumpToUnderline("THSetLaser")                ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntityYuukaParasol(null)                ,stringHumpToUnderline("YuukaParasol")              ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntityAjaRedStoneEffect(null)           ,stringHumpToUnderline("AjaRedStoneEffect")         ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntityMarisaBroom(null)                 ,stringHumpToUnderline("MarisaBroom")               ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityTHShot(null)                      ,stringHumpToUnderline("NormalShot")                ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
+        initEntity(new EntityTHLaser(null)                     ,stringHumpToUnderline("NormalLaser")               ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
+        initEntity(new EntitySpellCard(null)                   ,stringHumpToUnderline("SpellCard")                 ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
+        initEntity(new EntityMusouFuuin(null)                  ,stringHumpToUnderline("MusouFuuin")                ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntitySakuyaStopWatch(null)             ,stringHumpToUnderline("SakuyaStopWatch")           ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntityNuclearShot(null)                 ,stringHumpToUnderline("NuclearShot")               ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityHakurouReflecter(null)            ,stringHumpToUnderline("HakurouReflecter")          ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(new EntityOnmyoudama(null)                  ,stringHumpToUnderline("Onmyoudama")                ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityDivineSpirit(null)                ,stringHumpToUnderline("DivineSpirit")              ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntitySpellCardCircle(null)             ,stringHumpToUnderline("SpellCardCircle")           ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityCursedDecoyDoll(null)             ,stringHumpToUnderline("CursedDecoyDoll")           ,entityId++           , THKaguyaCore.instance, 60, 5, false   );
+        initEntity(new EntityTHFairy(null)                     ,stringHumpToUnderline("THFairy")                   ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityCirno(null)                       ,stringHumpToUnderline("Cirno")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityRumia(null)                       ,stringHumpToUnderline("Rumia")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityToziko(null)                      ,stringHumpToUnderline("Toziko")                    ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityTHPhantom(null)                   ,stringHumpToUnderline("THPhantom")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntitySanae(null)                       ,stringHumpToUnderline("Sanae")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityReimu(null)                       ,stringHumpToUnderline("Reimu")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityMiko(null)                        ,stringHumpToUnderline("Miko")                      ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityWriggle(null)                     ,stringHumpToUnderline("Wriggle")                   ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntitySakuya(null)                      ,stringHumpToUnderline("Sakuya")                    ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityRinnosuke(null)                   ,stringHumpToUnderline("Rinnosuke")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntitySunFlowerFairy(null)              ,stringHumpToUnderline("SunFlowerFairy")            ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityFamiliar(null)                    ,stringHumpToUnderline("Familiar")                  ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(new EntityDanmakuCreeper(null)              ,stringHumpToUnderline("Hanabeeper")                ,entityId             , THKaguyaCore.instance, 80, 1, true    );
         EntityRegistry.registerGlobalEntityID( EntityTHFairy.class                ,stringHumpToUnderline("THFairy")                    ,nextID++            , 0xFFFF80, 0xC0C000      );
         EntityRegistry.registerGlobalEntityID( EntitySunFlowerFairy.class         ,stringHumpToUnderline("SunflowerFairy")             ,nextID++            , 0xDDDD60, 0xA0A000      );
         EntityRegistry.registerGlobalEntityID( EntityTHPhantom.class              ,stringHumpToUnderline("THPhantom")                  ,nextID++            , 0xFFFFF0, 0xFFFFFF      );
@@ -219,9 +225,40 @@ public class CommonProxy
         Matcher matcher = Pattern.compile(letter).matcher(str);
         while (matcher.find()) {
             String getStr = matcher.group();
+            str = str.replaceFirst(getStr, getStr.toLowerCase());
             str = str.replaceAll(getStr, "_" + getStr.toLowerCase());
         }
         return str;
+    }
+
+    /**
+     * Registry entity and make spawn egg auto.
+     * @author Someoneice
+     */
+    public void initEntity(Entity entity, String entityName, int id, Object mod, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
+        EntityRegistry.registerModEntity(entity.getClass(), entityName, id, mod, trackingRange, updateFrequency, sendsVelocityUpdates);
+        new ItemSpawnEgg(entityName, entity);
+    }
+
+    class ItemSpawnEgg extends Item {
+        Entity entity;
+        public ItemSpawnEgg(String name, Entity entity) {
+            this.entity = entity;
+
+            this.setCreativeTab(CreativeTabs.tabMisc);
+            GameRegistry.registerItem(this, name);
+        }
+
+        @Override
+        public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float hx, float hy, float hz) {
+            entity.worldObj = world;
+
+            entity.posX = x;
+            entity.posY = y + 1.0D;
+            entity.posZ = z;
+
+            return world.spawnEntityInWorld(entity);
+        }
     }
     
     /**
