@@ -10,11 +10,11 @@ import java.util.Map;
 /** 妖精の弾幕パターンの登録クラス */
 public class DanmakuPatternRegistry
 {	
-	public static ArrayList<String> pattern = new ArrayList<String>();
-	public static Map<String, Integer> danmaku = new HashMap<String, Integer>();
-	public static Map<String, Integer> span = new HashMap<String, Integer>();
-	public static Map<String, Float> speed = new HashMap<String, Float>();
-	public static Map<String, Integer> form = new HashMap<String, Integer>();
+	public static ArrayList<String> pattern = new ArrayList<>();
+	public static Map<String, Integer> danmaku = new HashMap<>();
+	public static Map<String, Integer> span = new HashMap<>();
+	public static Map<String, Float> speed = new HashMap<>();
+	public static Map<String, Integer> form = new HashMap<>();
 	
 	public static void registerDanmakuPattern(String patternName, int r_danmaku, int r_span, float r_speed, int r_form)
 	{

@@ -15,6 +15,7 @@ import thKaguyaMod.THShotLib;
 import thKaguyaMod.entity.item.EntitySakuyaWatch;
 import thKaguyaMod.entity.living.EntityTHFairy;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 import static thKaguyaMod.THShotLib.gravity_Zero;
@@ -39,11 +40,19 @@ public class EntityTHSetLaser extends EntityTHLaser
     {
         super(world);
 
-    	if(worldObj.isRemote)
+    	if(world.isRemote)
     	{
     		setSize((float)getLaserLength(), getShotSize());
     	}
     }
+
+
+
+	public void flag(World world) {
+		if(world.isRemote) {
+			setSize((float)getLaserLength(), getShotSize());
+		}
+	}
 	
 	public EntityTHSetLaser(World world, EntityLivingBase user, Entity source,
 		Vec3 pos, Vec3 angle, float slope, Vec3 rotate, float rotationSpeed, int rotationEnd, 
@@ -75,8 +84,6 @@ public class EntityTHSetLaser extends EntityTHLaser
 			posZ = set.posZ + angle.zCoord * settingLength;// + this.overVectorZ * settingYOffset;
 			setPosition(posX, posY, posZ);
 		}
-        
-        
     }
 	
 	public EntityTHSetLaser(World world, EntityLivingBase user, Entity source,

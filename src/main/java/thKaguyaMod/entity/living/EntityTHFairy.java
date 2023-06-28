@@ -35,17 +35,16 @@ public class EntityTHFairy extends EntityDanmakuMob
     	experienceValue = 5;//経験値の量
 
     	setForm((byte)rand.nextInt(3));
-    	setPattern(rand.nextInt(DanmakuPatternRegistry.pattern.size()));
+    	setPattern(rand.nextInt(Math.max(DanmakuPatternRegistry.pattern.size(), 1)));
     	
     	lostTarget = 0;
     	this.setSpeed(0.3D);
-    	this.setSpecies(this.SPECIES_FAIRY);
+    	this.setSpecies(SPECIES_FAIRY);
     	isFlyingMode = true;
     	
     	this.setAttackDistance(8.0D);
     	this.setDetectionDistance(8.0D);
     	this.setFlyingHeight(2);
-    	
     }
     
     @Override

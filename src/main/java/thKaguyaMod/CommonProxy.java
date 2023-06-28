@@ -3,6 +3,7 @@ package thKaguyaMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.BlockDispenser;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.dispenser.IBehaviorDispenseItem;
 import net.minecraft.dispenser.IPosition;
@@ -33,6 +34,7 @@ import thKaguyaMod.item.ItemTHShot;
 import thKaguyaMod.registry.DanmakuPatternRegistry;
 import thKaguyaMod.registry.SpellCardRegistry;
 
+import java.lang.reflect.Constructor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -151,52 +153,53 @@ public class CommonProxy
          * A DISASTER! DISASTER! DISASTER!
          */
         int entityId = 0;
+        World world = Minecraft.getMinecraft().theWorld;
 
-        initEntity(new EntityShotMaterial(null)                ,stringHumpToUnderline("ShotMaterial")              ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
-        initEntity(new EntityDragonNeckJewel(null)             ,stringHumpToUnderline("BrilliantDragonBullet")     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityTHItem(null)                      ,stringHumpToUnderline("THItem")                    ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntityKinkakuzi(null)                   ,stringHumpToUnderline("Kinkakuzi")                 ,entityId++           , THKaguyaCore.instance,250, 1, true    );
-        initEntity(new EntitySilverKnife(null)                 ,stringHumpToUnderline("SilverKnife")               ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntitySakuyaWatch(null)                 ,stringHumpToUnderline("PrivateSquare")             ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntitySukima(null)                      ,stringHumpToUnderline("Sukima")                    ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
-        initEntity(new EntityMazinkyoukan(null)                ,stringHumpToUnderline("Mazinkyoukan")              ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntityHisou(null)                       ,stringHumpToUnderline("Hisou")                     ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntityPendulum(null)                    ,stringHumpToUnderline("NazrinPendulum")            ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntityMiracleCircle(null)               ,stringHumpToUnderline("MiracleCircle")             ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
-        initEntity(new EntitySanaeWind(null)                   ,stringHumpToUnderline("SanaeWind")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityCirnoIceBox(null)                 ,stringHumpToUnderline("CirnoIceBox")               ,entityId++           , THKaguyaCore.instance, 80,10, false   );
-        initEntity(new EntitySpiritualStrikeTalisman(null)     ,stringHumpToUnderline("SpiritualStrikeTalisman")   ,entityId++           , THKaguyaCore.instance, 80,10, false   );
-        initEntity(new EntityMiniHakkero(null)                 ,stringHumpToUnderline("MiniHakkero")               ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
-        initEntity(new EntityHomingAmulet(null)                ,stringHumpToUnderline("HomingAmulet")              ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityTHSetLaser(null)                  ,stringHumpToUnderline("THSetLaser")                ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntityYuukaParasol(null)                ,stringHumpToUnderline("YuukaParasol")              ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntityAjaRedStoneEffect(null)           ,stringHumpToUnderline("AjaRedStoneEffect")         ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntityMarisaBroom(null)                 ,stringHumpToUnderline("MarisaBroom")               ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityTHShot(null)                      ,stringHumpToUnderline("NormalShot")                ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
-        initEntity(new EntityTHLaser(null)                     ,stringHumpToUnderline("NormalLaser")               ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
-        initEntity(new EntitySpellCard(null)                   ,stringHumpToUnderline("SpellCard")                 ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
-        initEntity(new EntityMusouFuuin(null)                  ,stringHumpToUnderline("MusouFuuin")                ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntitySakuyaStopWatch(null)             ,stringHumpToUnderline("SakuyaStopWatch")           ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntityNuclearShot(null)                 ,stringHumpToUnderline("NuclearShot")               ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityHakurouReflecter(null)            ,stringHumpToUnderline("HakurouReflecter")          ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
-        initEntity(new EntityOnmyoudama(null)                  ,stringHumpToUnderline("Onmyoudama")                ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityDivineSpirit(null)                ,stringHumpToUnderline("DivineSpirit")              ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntitySpellCardCircle(null)             ,stringHumpToUnderline("SpellCardCircle")           ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityCursedDecoyDoll(null)             ,stringHumpToUnderline("CursedDecoyDoll")           ,entityId++           , THKaguyaCore.instance, 60, 5, false   );
-        initEntity(new EntityTHFairy(null)                     ,stringHumpToUnderline("THFairy")                   ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityCirno(null)                       ,stringHumpToUnderline("Cirno")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityRumia(null)                       ,stringHumpToUnderline("Rumia")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityToziko(null)                      ,stringHumpToUnderline("Toziko")                    ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityTHPhantom(null)                   ,stringHumpToUnderline("THPhantom")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntitySanae(null)                       ,stringHumpToUnderline("Sanae")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityReimu(null)                       ,stringHumpToUnderline("Reimu")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityMiko(null)                        ,stringHumpToUnderline("Miko")                      ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityWriggle(null)                     ,stringHumpToUnderline("Wriggle")                   ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntitySakuya(null)                      ,stringHumpToUnderline("Sakuya")                    ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityRinnosuke(null)                   ,stringHumpToUnderline("Rinnosuke")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntitySunFlowerFairy(null)              ,stringHumpToUnderline("SunFlowerFairy")            ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityFamiliar(null)                    ,stringHumpToUnderline("Familiar")                  ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
-        initEntity(new EntityDanmakuCreeper(null)              ,stringHumpToUnderline("Hanabeeper")                ,entityId             , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityShotMaterial.class              ,stringHumpToUnderline("ShotMaterial")              ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
+        initEntity(EntityDragonNeckJewel.class           ,stringHumpToUnderline("BrilliantDragonBullet")     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityTHItem.class                    ,stringHumpToUnderline("THItem")                    ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntityKinkakuzi.class                 ,stringHumpToUnderline("Kinkakuzi")                 ,entityId++           , THKaguyaCore.instance,250, 1, true    );
+        initEntity(EntitySilverKnife.class               ,stringHumpToUnderline("SilverKnife")               ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntitySakuyaWatch.class               ,stringHumpToUnderline("PrivateSquare")             ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntitySukima.class                    ,stringHumpToUnderline("Sukima")                    ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
+        initEntity(EntityMazinkyoukan.class              ,stringHumpToUnderline("Mazinkyoukan")              ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntityHisou.class                     ,stringHumpToUnderline("Hisou")                     ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntityPendulum.class                  ,stringHumpToUnderline("NazrinPendulum")            ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntityMiracleCircle.class             ,stringHumpToUnderline("MiracleCircle")             ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
+        initEntity(EntitySanaeWind.class                 ,stringHumpToUnderline("SanaeWind")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityCirnoIceBox.class               ,stringHumpToUnderline("CirnoIceBox")               ,entityId++           , THKaguyaCore.instance, 80,10, false   );
+        initEntity(EntitySpiritualStrikeTalisman.class   ,stringHumpToUnderline("SpiritualStrikeTalisman")   ,entityId++           , THKaguyaCore.instance, 80,10, false   );
+        initEntity(EntityMiniHakkero.class               ,stringHumpToUnderline("MiniHakkero")               ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
+        initEntity(EntityHomingAmulet.class              ,stringHumpToUnderline("HomingAmulet")              ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityTHSetLaser.class                ,stringHumpToUnderline("THSetLaser")                ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntityYuukaParasol.class              ,stringHumpToUnderline("YuukaParasol")              ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntityAjaRedStoneEffect.class         ,stringHumpToUnderline("AjaRedStoneEffect")         ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntityMarisaBroom.class               ,stringHumpToUnderline("MarisaBroom")               ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityTHShot.class                    ,stringHumpToUnderline("NormalShot")                ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
+        initEntity(EntityTHLaser.class                   ,stringHumpToUnderline("NormalLaser")               ,entityId++           , THKaguyaCore.instance, 40, 1, false   );
+        initEntity(EntitySpellCard.class                 ,stringHumpToUnderline("SpellCard")                 ,entityId++           , THKaguyaCore.instance, 40, 5, false   );
+        initEntity(EntityMusouFuuin.class                ,stringHumpToUnderline("MusouFuuin")                ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntitySakuyaStopWatch.class           ,stringHumpToUnderline("SakuyaStopWatch")           ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntityNuclearShot.class               ,stringHumpToUnderline("NuclearShot")               ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityHakurouReflecter.class          ,stringHumpToUnderline("HakurouReflecter")          ,entityId++           , THKaguyaCore.instance, 40, 1, true    );
+        initEntity(EntityOnmyoudama.class                ,stringHumpToUnderline("Onmyoudama")                ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityDivineSpirit.class              ,stringHumpToUnderline("DivineSpirit")              ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntitySpellCardCircle.class           ,stringHumpToUnderline("SpellCardCircle")           ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityCursedDecoyDoll.class           ,stringHumpToUnderline("CursedDecoyDoll")           ,entityId++           , THKaguyaCore.instance, 60, 5, false   );
+        initEntity(EntityTHFairy.class                   ,stringHumpToUnderline("THFairy")                   ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityCirno.class                     ,stringHumpToUnderline("Cirno")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityRumia.class                     ,stringHumpToUnderline("Rumia")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityToziko.class                    ,stringHumpToUnderline("Toziko")                    ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityTHPhantom.class                 ,stringHumpToUnderline("THPhantom")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntitySanae.class                     ,stringHumpToUnderline("Sanae")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityReimu.class                     ,stringHumpToUnderline("Reimu")                     ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityMiko.class                      ,stringHumpToUnderline("Miko")                      ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityWriggle.class                   ,stringHumpToUnderline("Wriggle")                   ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntitySakuya.class                    ,stringHumpToUnderline("Sakuya")                    ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityRinnosuke.class                 ,stringHumpToUnderline("Rinnosuke")                 ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntitySunFlowerFairy.class            ,stringHumpToUnderline("SunFlowerFairy")            ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityFamiliar.class                  ,stringHumpToUnderline("Familiar")                  ,entityId++           , THKaguyaCore.instance, 80, 1, true    );
+        initEntity(EntityDanmakuCreeper.class            ,stringHumpToUnderline("Hanabeeper")                ,entityId             , THKaguyaCore.instance, 80, 1, true    );
         EntityRegistry.registerGlobalEntityID( EntityTHFairy.class                ,stringHumpToUnderline("THFairy")                    ,nextID++            , 0xFFFF80, 0xC0C000      );
         EntityRegistry.registerGlobalEntityID( EntitySunFlowerFairy.class         ,stringHumpToUnderline("SunflowerFairy")             ,nextID++            , 0xDDDD60, 0xA0A000      );
         EntityRegistry.registerGlobalEntityID( EntityTHPhantom.class              ,stringHumpToUnderline("THPhantom")                  ,nextID++            , 0xFFFFF0, 0xFFFFFF      );
@@ -235,27 +238,79 @@ public class CommonProxy
      * Registry entity and make spawn egg auto.
      * @author Someoneice
      */
-    public void initEntity(Entity entity, String entityName, int id, Object mod, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
-        EntityRegistry.registerModEntity(entity.getClass(), entityName, id, mod, trackingRange, updateFrequency, sendsVelocityUpdates);
+    public void initEntity(Class<? extends Entity> entity, String entityName, int id, Object mod, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
+        EntityRegistry.registerModEntity(entity, entityName, id, mod, trackingRange, updateFrequency, sendsVelocityUpdates);
         new ItemSpawnEgg(entityName, entity);
     }
 
     class ItemSpawnEgg extends Item {
-        Entity entity;
-        public ItemSpawnEgg(String name, Entity entity) {
-            this.entity = entity;
+        Class<? extends Entity> clazz;
+        public ItemSpawnEgg(String name, Class<? extends Entity> entity) {
+            this.clazz = entity;
+            String rname = name + "_egg";
+            this.setUnlocalizedName(rname);
+            this.setTextureName("THKaguyaMod:" + rname);
 
             this.setCreativeTab(CreativeTabs.tabMisc);
-            GameRegistry.registerItem(this, name);
+            GameRegistry.registerItem(this, rname);
         }
 
         @Override
         public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float hx, float hy, float hz) {
-            entity.worldObj = world;
+            Entity entity = null;
+            if (clazz == EntityShotMaterial.class              ) entity = new EntityShotMaterial(world);
+            if (clazz == EntityDragonNeckJewel.class           ) entity = new EntityDragonNeckJewel(world);
+            if (clazz == EntityTHItem.class                    ) entity = new EntityTHItem(world);
+            if (clazz == EntityKinkakuzi.class                 ) entity = new EntityKinkakuzi(world);
+            if (clazz == EntitySilverKnife.class               ) entity = new EntitySilverKnife(world);
+            if (clazz == EntitySakuyaWatch.class               ) entity = new EntitySakuyaWatch(world);
+            if (clazz == EntitySukima.class                    ) entity = new EntitySukima(world);
+            if (clazz == EntityMazinkyoukan.class              ) entity = new EntityMazinkyoukan(world);
+            if (clazz == EntityHisou.class                     ) entity = new EntityHisou(world);
+            if (clazz == EntityPendulum.class                  ) entity = new EntityPendulum(world);
+            if (clazz == EntityMiracleCircle.class             ) entity = new EntityMiracleCircle(world);
+            if (clazz == EntitySanaeWind.class                 ) entity = new EntitySanaeWind(world);
+            if (clazz == EntityCirnoIceBox.class               ) entity = new EntityCirnoIceBox(world);
+            if (clazz == EntitySpiritualStrikeTalisman.class   ) entity = new EntitySpiritualStrikeTalisman(world);
+            if (clazz == EntityMiniHakkero.class               ) entity = new EntityMiniHakkero(world);
+            if (clazz == EntityHomingAmulet.class              ) entity = new EntityHomingAmulet(world);
+            if (clazz == EntityTHSetLaser.class                ) entity = new EntityTHSetLaser(world);
+            if (clazz == EntityYuukaParasol.class              ) entity = new EntityYuukaParasol(world);
+            if (clazz == EntityAjaRedStoneEffect.class         ) entity = new EntityAjaRedStoneEffect(world);
+            if (clazz == EntityMarisaBroom.class               ) entity = new EntityMarisaBroom(world);
+            if (clazz == EntityTHShot.class                    ) entity = new EntityTHShot(world);
+            if (clazz == EntityTHLaser.class                   ) entity = new EntityTHLaser(world);
+            if (clazz == EntitySpellCard.class                 ) entity = new EntitySpellCard(world);
+            if (clazz == EntityMusouFuuin.class                ) entity = new EntityMusouFuuin(world);
+            if (clazz == EntitySakuyaStopWatch.class           ) entity = new EntitySakuyaStopWatch(world);
+            if (clazz == EntityNuclearShot.class               ) entity = new EntityNuclearShot(world);
+            if (clazz == EntityHakurouReflecter.class          ) entity = new EntityHakurouReflecter(world);
+            if (clazz == EntityOnmyoudama.class                ) entity = new EntityOnmyoudama(world);
+            if (clazz == EntityDivineSpirit.class              ) entity = new EntityDivineSpirit(world);
+            if (clazz == EntitySpellCardCircle.class           ) entity = new EntitySpellCardCircle(world);
+            if (clazz == EntityCursedDecoyDoll.class           ) entity = new EntityCursedDecoyDoll(world);
+            if (clazz == EntityTHFairy.class                   ) entity = new EntityTHFairy(world);
+            if (clazz == EntityCirno.class                     ) entity = new EntityCirno(world);
+            if (clazz == EntityRumia.class                     ) entity = new EntityRumia(world);
+            if (clazz == EntityToziko.class                    ) entity = new EntityToziko(world);
+            if (clazz == EntityTHPhantom.class                 ) entity = new EntityTHPhantom(world);
+            if (clazz == EntitySanae.class                     ) entity = new EntitySanae(world);
+            if (clazz == EntityReimu.class                     ) entity = new EntityReimu(world);
+            if (clazz == EntityMiko.class                      ) entity = new EntityMiko(world);
+            if (clazz == EntityWriggle.class                   ) entity = new EntityWriggle(world);
+            if (clazz == EntitySakuya.class                    ) entity = new EntitySakuya(world);
+            if (clazz == EntityRinnosuke.class                 ) entity = new EntityRinnosuke(world);
+            if (clazz == EntitySunFlowerFairy.class            ) entity = new EntitySunFlowerFairy(world);
+            if (clazz == EntityFamiliar.class                  ) entity = new EntityFamiliar(world);
+            if (clazz == EntityDanmakuCreeper.class            ) entity = new EntityDanmakuCreeper(world);
+
+            if (entity == null) return false;
 
             entity.posX = x;
             entity.posY = y + 1.0D;
             entity.posZ = z;
+
+            ((EntityLiving) entity).setHealth(((EntityLiving) entity).getMaxHealth());
 
             return world.spawnEntityInWorld(entity);
         }
